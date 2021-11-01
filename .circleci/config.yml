@@ -37,7 +37,9 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: src/composer install -n --prefer-dist
+      - run: 
+        working_directory: src
+        comand: composer install -n --prefer-dist
 
       - save_cache:
           key: v1-dependencies-{{ checksum "src/composer.json" }}
