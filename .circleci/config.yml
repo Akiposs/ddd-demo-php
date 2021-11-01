@@ -38,8 +38,8 @@ jobs:
             - v1-dependencies-
 
       - run: 
-        working_directory: src
-        comand: composer install -n --prefer-dist
+          working_directory: src
+          command: composer install -n --prefer-dist
 
       - save_cache:
           key: v1-dependencies-{{ checksum "src/composer.json" }}
