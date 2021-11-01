@@ -1,4 +1,5 @@
 version: "3"
+
 services:
   nginx:
     build:
@@ -33,12 +34,12 @@ services:
     tty: true
 
   mysql:
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: ./mysql/Dockerfile
     volumes: 
       - ./logs/mysql:/var/log/mysql
-      - ./mysql/initdb.d:/docker-entrypoint-initdb.d/
       # - ./mysql/mysql.conf.d:/etc/mysql/mysql.conf.d
     environment:
       TZ: 'Asia/Tokyo'
